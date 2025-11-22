@@ -1,0 +1,53 @@
+/* Basic reset */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    background-color: #f5f5f5;
+    color: #222;
+    margin: 0;
+    padding: 0;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px 15px;
+    text-align: center;
+}
+
+/* Headline */
+h1 {
+    font-size: 26px;
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+
+p {
+    margin-bottom: 16px;
+    font-size: 15px;
+    text-align: center;
+}
+
+
+img {
+    display: block;
+    margin: 0 auto;
+    max-width: 60%;
+    height: auto;
+}
+
+
+iframe {
+    width: 60%; 
+    border: none;
+    margin: 0 auto;
+    display: block;
+}

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- set the character set -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- first step to a responsive site -->
+    <title>NYC Trees: When New Plantings Die Young</title>
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    <!-- Your styles should be called here -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="content">
+
+        <h1>New York City’s New Trees Are Dying Young</h1>
+        <p class="subhead">City forestry data shows that New York is not just losing older canopy — hundreds of trees planted in the past decade have already died.</p>
+        <p class="byline">By Hannah Simpson</p>
+        <h5> November 22, 2025</h5> 
+
+        <!-- FIRST CHART: Overall tree condition -->
+        <div>
+            <p><strong>Condition of trees in the NYC forestry database</strong></p>
+            <iframe title="Tree Condition" aria-label="Bar Chart" id="datawrapper-chart-188Ac"
+                src="https://datawrapper.dwcdn.net/188Ac/1/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="286"
+                data-external="1"></iframe>
+            <script type="text/javascript">
+                window.addEventListener("message", function (a) {
+                    if (void 0 !== a.data["datawrapper-height"]) {
+                        var e = document.querySelectorAll("iframe");
+                        for (var t in a.data["datawrapper-height"])
+                            for (var r, i = 0; r = e[i]; i++)
+                                if (r.contentWindow === a.source) {
+                                    var d = a.data["datawrapper-height"][t] + "px";
+                                    r.style.height = d
+                                }
+                    }
+                });
+            </script>
+        </div>
+
+        <!-- IMAGE -->
+        <img src="images/tree.jpeg" alt="Hackberry sapling at Flushing Meadows Corona Park">
+        <p style="font-size: 13px; color: #666; margin-top: -10px;">
+            Photo by Hannah Simpson — the youngest addition to Flushing Meadows Corona Park, a hackberry sapling.
+        </p>
+
+        <!-- STORY TEXT -->
+        <p>
+          New York City has lost more than 118,000 trees, and planting data shows the problem isn’t limited to aging canopy. Hundreds of recently planted trees—including some from 2023, 2024 and even 2025—have already died, raising questions about how well the city can maintain young plantings that need the most care. At Flushing Meadows Corona Park, deputy administrator Latisha Williams said new trees face structural challenges the city cannot fully address. “The park was also built on an ashfield, right? So sediment moving and stuff like that… is now working against us,” she said. Without upgraded water lines, “a new tree takes 20 gallons of water per week until it becomes established.” She added that saplings are routinely stressed by dog waste, road salt and limited staff attention. “We'd love our park to look like a postcard… but with the staff that we have, a lot of times… we have to focus on making sure the park is clean and safe.”
+        </p>
+
+        <p style="font-size:12px; color:#777;">Source: NYC Parks & Recreation, Forestry Tree Points dataset.</p>
+
+        <!-- SECOND CHART: Dead trees by planting year -->
+        <div>
+            <p><strong>Dead trees by planting year, 2010–2025</strong></p>
+            <iframe title="Dead Trees By Planting Year" aria-label="Bar Chart" id="datawrapper-chart-JAIRl"
+                src="https://datawrapper.dwcdn.net/JAIRl/1/" scrolling="no" frameborder="0"
+                style="width: 0; min-width: 100% !important; border: none;" height="377"
+                data-external="1"></iframe>
+            <script type="text/javascript">
+                window.addEventListener("message", function (a) {
+                    if (void 0 !== a.data["datawrapper-height"]) {
+                        var e = document.querySelectorAll("iframe");
+                        for (var t in a.data["datawrapper-height"])
+                            for (var r, i = 0; r = e[i]; i++)
+                                if (r.contentWindow === a.source) {
+                                    var d = a.data["datawrapper-height"][t] + "px";
+                                    r.style.height = d
+                                }
+                    }
+                });
+            </script>
+            <p><strong>Data Diary</strong></p>
+
+<p><strong>PART 1: Tree Condition Chart</strong></p>
+
+<p>In the first chart I wanted to show how many NYC trees fall into each condition category (Good, Fair, Poor, Critical, Dead).</p>
+
+<p><strong>Steps I took in Excel:</strong></p>
+
+<ul>
+    <li>I opened the CSV in Excel and found the TPCondition column, which lists each tree’s condition.</li>
+    <li>I created a Pivot Table with “TPCondition” as the row field and “Count of TPCondition” as the value.</li>
+    <li>The Pivot Table gave me a simple count of how many trees fall into each category.</li>
+    <li>I checked for blanks or strange labels and ignored the empty cells since they were not significant.</li>
+    <li>I exported the pivot results into a two-column sheet with “Condition” and “Count.”</li>
+    <li>I uploaded that small table into Datawrapper and chose a bar chart.</li>
+    <li>I added the chart title: “Condition of Trees in the NYC Forestry Database.”</li>
+</ul>
+
+<p><strong>PART 2: Dead Trees by Planting Year</strong></p>
+
+<p>In the second chart I wanted to analyze how many dead trees were planted in each year, especially recent ones.</p>
+
+<p><strong>Steps I took in Excel:</strong></p>
+
+<ul>
+    <li>I returned to the dataset and found the TPCondition and PlantedDate columns.</li>
+    <li>I filtered TPCondition = “Dead” so I was only looking at trees the city marked as dead.</li>
+    <li>I created a new column and used the formula <code>=YEAR(cell)</code> to extract the planting year from PlantedDate.</li>
+    <li>I filtered out the blank years, since many older trees had no planting date recorded.</li>
+    <li>I made a Pivot Table with “PlantingYear” as the row field and “Count of PlantingYear” as the value.</li>
+    <li>Because early years had little or no data, I limited the results to 2010–2025.</li>
+    <li>I exported the pivot results into a two-column sheet and uploaded it into Datawrapper as a bar chart.</li>
+</ul>
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>
